@@ -1,5 +1,5 @@
 class CanvasSpinner {
-  constructor (frames, el) {
+  constructor(frames, el) {
     this.frames = frames
     this.framesCount = this.frames.length
     this.el = el
@@ -14,7 +14,7 @@ class CanvasSpinner {
   }
 
   // User Interactions
-  registerEventListeners () {
+  registerEventListeners() {
     this.el.addEventListener("mousedown", e => {
       this.clicked = true
     }, false)
@@ -41,7 +41,7 @@ class CanvasSpinner {
     }, false)
   }
 
-  build () {
+  build() {
     // All user even listeners
     this.registerEventListeners()
     // Render images onto canvas
@@ -53,7 +53,7 @@ class CanvasSpinner {
    *
    * @returns {Promise<Promise<unknown[]>>}
    */
-  async loadImages () {
+  async loadImages() {
     return Promise.all(this.frames.map(this.bitmapFromUrl))
       .then(frames => this.setImgsAfterLoad(frames))
   }
@@ -63,7 +63,7 @@ class CanvasSpinner {
    * @param {String} url url of image to load
    * @return {Promise<ImageBitmap>} Promise that resolves to image ready for use
    */
-  async bitmapFromUrl (url) {
+  async bitmapFromUrl(url) {
     let loadingImg = true
     let bitmap, res, blob
     while (loadingImg) {
@@ -79,7 +79,7 @@ class CanvasSpinner {
     return bitmap
   }
 
-  setImgsAfterLoad (frames) {
+  setImgsAfterLoad(frames) {
     this.frames = frames
     this.loaded = true
     // fit the canvas
@@ -92,7 +92,7 @@ class CanvasSpinner {
     }
   }
 
-  update (direction) {
+  update(direction) {
     if (this.loaded) {
       this.currentFrame += direction
       if (this.currentFrame < 0) {
@@ -104,20 +104,20 @@ class CanvasSpinner {
     }
   }
 
-  handleTouchMove (e) {
-    console.log('here')
-    if (this.loaded) {
-      this.currentFrame += direction
-      if (this.currentFrame < 0) {
-        this.currentFrame = this.framesCount + this.currentFrame
-      } else if (this.currentFrame > this.framesCount - 1) {
-        this.currentFrame = this.currentFrame - this.framesCount
+  handleTouchMove(e) {
+    if (this.loaded && this.clicked) {
+      let touch = event.changedTouches[0]
+      let touchDelta = this.lastTouchX - touch.screenX
+      if (touchDelta > 0) {
+        this.update(-1)
+      } else if (touchDelta < 0) {
+        this.update(-1)
       }
-      this.canvasContext.drawImage(this.currentFrame, 0, 0)
+      this.lastTouchX = touch.screenX
     }
   }
 
-  handleMouseMove (e) {
+  handleMouseMove(e) {
     if (this.loaded && this.clicked) {
       let tracker = event.movementX
       if (tracker > 0) {
@@ -128,7 +128,7 @@ class CanvasSpinner {
     }
   }
 
-  imgBmpPolyfill () {
+  imgBmpPolyfill() {
     /* Safari and Edge polyfill for createImageBitmap
      * https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/createImageBitmap
      */
