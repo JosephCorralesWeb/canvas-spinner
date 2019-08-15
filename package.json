@@ -1,16 +1,41 @@
 {
-  "name": "canvas-spinner",
-  "version": "0.1.8",
-  "description": "3d product viewer written in vanilla Js",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib"
-  },
-  "repository": {
+  "_from": "git+https://github.com/Juegoman/canvas-spinner.git",
+  "_id": "canvas-spinner@0.1.8",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/canvas-spinner",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "git+https://github.com/JakeAdams91/canvas-spinner.git"
+    "raw": "canvas-spinner@git+https://github.com/Juegoman/canvas-spinner.git",
+    "name": "canvas-spinner",
+    "escapedName": "canvas-spinner",
+    "rawSpec": "git+https://github.com/Juegoman/canvas-spinner.git",
+    "saveSpec": "git+https://github.com/Juegoman/canvas-spinner.git",
+    "fetchSpec": "https://github.com/Juegoman/canvas-spinner.git",
+    "gitCommittish": null
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/Juegoman/canvas-spinner.git#905a877a4b9f37413856305876386c7e231e4bb8",
+  "_spec": "canvas-spinner@git+https://github.com/Juegoman/canvas-spinner.git",
+  "_where": "C:\\Users\\Hey Squanchers\\PGM\\allcores-bootstrap\\kphp",
+  "author": {
+    "name": "Jake Adams and Ruben Gallegos"
+  },
+  "bugs": {
+    "url": "https://github.com/JakeAdams91/canvas-spinner/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "3d product viewer written in vanilla Js",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "homepage": "https://github.com/JakeAdams91/canvas-spinner#readme",
   "keywords": [
     "product",
     "viewer",
@@ -18,15 +43,16 @@
     "canvas",
     "vanilla"
   ],
-  "author": "Jake Adams and Ruben Gallegos",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JakeAdams91/canvas-spinner/issues"
+  "main": "lib/index.js",
+  "name": "canvas-spinner",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakeAdams91/canvas-spinner.git"
   },
-  "homepage": "https://github.com/JakeAdams91/canvas-spinner#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
-  }
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.8"
 }
