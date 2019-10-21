@@ -109,7 +109,7 @@ class CanvasSpinner {
       let touch = event.changedTouches[0]
       let touchDelta = this.lastTouchX - touch.screenX
       if (touchDelta > 0) {
-        this.update(-1)
+        this.update(1)
       } else if (touchDelta < 0) {
         this.update(-1)
       }
